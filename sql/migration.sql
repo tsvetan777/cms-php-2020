@@ -5,7 +5,7 @@ CREATE TABLE mycms.tb_blogpost(
     title 			VARCHAR(512) NOT NULL,
     content 		TEXT NOT NULL,
     preview_content VARCHAR(1024)
-)
+);
 
 INSERT INTO mycms.tb_blogpost (title, content, preview_content)
 	VALUES('Последни клюки', 
