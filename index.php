@@ -1,3 +1,10 @@
+<?php include './src/db/database.php'; ?>
+<?php 
+
+    $mysqlResult = query("SELECT * FROM tb_blogpost");
+    
+?>
+
 <html>
     <head>
         <title>title</title>
@@ -20,51 +27,22 @@
             <div id="blog-post--content">
                 
                 <div class="post">
-                    <span class="post-title">Последни клюки</span>
-                    <div class="post-content">
-                        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut tempus iaculis condimentum. Aliquam vulputate pretium mauris a convallis. 
-                            Cras faucibus odio quis nibh condimentum, id iaculis neque fermentum. Ut et elit tortor. In hac habitasse platea dictumst. Morbi 
-                            egestas nec massa in elementum. Nulla a ipsum semper, varius nulla eget, tincidunt dui. Vivamus venenatis purus augue, non consectetur 
-                            risus ornare ac. Nam dictum aliquam tellus in interdum. Proin purus est, tincidunt ac dui ac, euismod tempor nibh. Nullam sit amet 
-                            tempor justo. Integer tempus turpis in magna tincidunt pellentesque ac in nisi. Nunc viverra nunc ut maximus consequat.
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="post">
-                    <span class="post-title">Политика служба тика</span>
-                    <div class="post-content">
-                        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut tempus iaculis condimentum. Aliquam vulputate pretium mauris a convallis. 
-                            Cras faucibus odio quis nibh condimentum, id iaculis neque fermentum. Ut et elit tortor. In hac habitasse platea dictumst. Morbi 
-                            egestas nec massa in elementum. Nulla a ipsum semper, varius nulla eget, tincidunt dui. Vivamus venenatis purus augue, non consectetur 
-                            risus ornare ac. Nam dictum aliquam tellus in interdum. Proin purus est, tincidunt ac dui ac, euismod tempor nibh. Nullam sit amet 
-                            tempor justo. Integer tempus turpis in magna tincidunt pellentesque ac in nisi. Nunc viverra nunc ut maximus consequat.
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="post">
-                    <span class="post-title">Сашо Роман президент</span>
-                    <div class="post-content">
-                        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut tempus iaculis condimentum. Aliquam vulputate pretium mauris a convallis. 
-                            Cras faucibus odio quis nibh condimentum, id iaculis neque fermentum. Ut et elit tortor. In hac habitasse platea dictumst. Morbi 
-                            egestas nec massa in elementum. Nulla a ipsum semper, varius nulla eget, tincidunt dui. Vivamus venenatis purus augue, non consectetur 
-                            risus ornare ac. Nam dictum aliquam tellus in interdum. Proin purus est, tincidunt ac dui ac, euismod tempor nibh. Nullam sit amet 
-                            tempor justo. Integer tempus turpis in magna tincidunt pellentesque ac in nisi. Nunc viverra nunc ut maximus consequat.
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="post">
-                    <span class="post-title">Излезе HTML8</span>
-                    <div class="post-content">
-                        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut tempus iaculis condimentum. Aliquam vulputate pretium mauris a convallis. 
-                            Cras faucibus odio quis nibh condimentum, id iaculis neque fermentum. Ut et elit tortor. In hac habitasse platea dictumst. Morbi 
-                            egestas nec massa in elementum. Nulla a ipsum semper, varius nulla eget, tincidunt dui. Vivamus venenatis purus augue, non consectetur 
-                            risus ornare ac. Nam dictum aliquam tellus in interdum. Proin purus est, tincidunt ac dui ac, euismod tempor nibh. Nullam sit amet 
-                            tempor justo. Integer tempus turpis in magna tincidunt pellentesque ac in nisi. Nunc viverra nunc ut maximus consequat.
-                        </p>
-                    </div>
+                    <?php 
+                    
+                    $mysqlResult = query("SELECT * FROM tb_blogpost");
+                    while($blogPost = mysqli_fetch_assoc($mysqlResult)) { ?>
+                    
+                        <span class="post-title"> 
+                            <?php echo $blogPost['title']; ?> 
+                        </span>
+                    
+                        <div class="post-content">
+                            <p>
+                                <?php echo $blogPost['content']; ?>
+                            </p>
+                        </div>
+                    
+                    <?php } ?>
                 </div>
                 
             </div>
