@@ -79,6 +79,11 @@
     
 }
 
+.form-error {
+    font-weight : bold;
+    color       : red;
+}
+
 
 
 
