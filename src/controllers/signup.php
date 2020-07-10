@@ -10,11 +10,25 @@ if(isset($_POST['user_request_tokken']) AND $_POST['user_request_tokken'] == 1) 
     $userPassRepeat = isset($_POST['user_pass_repeat']) ? $_POST['user_pass_repeat']    : '';
     
     
-    if(strlen($userName) < 3)               { return;}
-    if(strlen($userFName) < 3)              { return;}
-    if(strlen($userLName) < 3)              { return;}
-    if(strlen($userEmail) < 5)              { return;}
-    if($userPass != $userPassRepeat)        {return;}
+    if(strlen($userName) < 3) {
+        return setFormError('signup', 'user_name', 'Min lenght 3 characters is required');
+    }
+        
+    if(strlen($userFName) < 3) {
+        return setFormError('signup', 'user_fname', 'Min lenght 3 characters is required');   
+    }
+    
+    if(strlen($userLName) < 3) {
+        return setFormError('signup', 'user_lname', 'Min lenght 3 characters is required');
+    }
+    
+    if(strlen($userEmail) < 5) {
+        return setFormError('signup', 'user_email', 'Min lenght 5 characters is required');
+    }
+    
+    if($userPass != $userPassRepeat) {
+        return setFormError('signup', 'user_pass', 'User password and password repeat must be the same string');
+    }
     
     $createNewUserRequest = "INSERT INTO tb_users(name, fname, lname, email, pass)"
             . "VALUES('$userName', '$userFName', '$userLName', '$userEmail', '$userPass')";
