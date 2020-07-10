@@ -1,6 +1,7 @@
 <?php
 
-function query($query) {      // SELECT * FROM tb_blogpost
+// SELECT * FROM tb_blogpost
+function query($query) {      
     
     // Step 1: Connect to database
     
@@ -11,6 +12,15 @@ function query($query) {      // SELECT * FROM tb_blogpost
         return;
     }
     
-    return mysqli_query($connection, $query);
+    $databaseResult = mysqli_query($connection, $query);
+    
+    if(!$databaseResult) {
+        
+        echo '<div class="db-error>"';
+        echo mysqli_error($connection);
+        
+    }
+    
+    return $databaseResult;
 }
 
