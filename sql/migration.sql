@@ -1,10 +1,10 @@
 CREATE DATABASE mycms;
 
 CREATE TABLE mycms.tb_blogpost(
-	id 				INTEGER AUTO_INCREMENT PRIMARY KEY,
-    title 			VARCHAR(512) NOT NULL,
-    content 		TEXT NOT NULL,
-    preview_content VARCHAR(1024)
+    id 			INTEGER AUTO_INCREMENT PRIMARY KEY,
+    title 		VARCHAR(512) NOT NULL,
+    content             TEXT NOT NULL,
+    preview_content     VARCHAR(1024)
 );
 
 INSERT INTO mycms.tb_blogpost (title, content, preview_content)
