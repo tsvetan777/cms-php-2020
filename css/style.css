@@ -72,7 +72,7 @@
 
 .db-error {
     font-weight     : bold;
-    border          : solid 2px black;
+    border          : solid 2px #000;
     background      : #e54d2;
     text-transform  : uppercase;
     padding         : 5px;
@@ -81,7 +81,7 @@
 
 .form-error {
     font-weight : bold;
-    color       : red;
+    color       : #ff0000;
 }
 
 
