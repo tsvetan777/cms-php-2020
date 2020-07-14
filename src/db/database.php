@@ -6,17 +6,15 @@ function dbConnect() {
         return $_SESSION['is_connected_to_db'];
     }
     
-    // CREATE AND STORE CONNECTION TO DATABASE:
+    // Create and store connection to database:
     
     $_SESSION['is_connected_to_db'] = mysqli_connect("localhost", "root", "", "mycms");
     return $_SESSION['is_connected_to_db'];
-    
 }
 
-// SELECT * FROM tb_blogpost
 function query($query) {      
     
-    // Step 1: Connect to database
+    // Connect to database:
     
     $connection = dbConnect();
     
