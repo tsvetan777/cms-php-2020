@@ -11,17 +11,17 @@
     <div class="post">
         <?php 
                     
-        $mysqlResult = query("SELECT * FROM tb_blogpost");
-        while($blogPost = mysqli_fetch_assoc($mysqlResult)) { ?>
+        $mysqlResult = Database::query("SELECT * FROM tb_blogpost");
+        while($blogPost = Database::fetch($mysqlResult)) { ?>
                     
         <span class="post-title"> 
             <?php echo $blogPost['title']; ?> 
         </span>
                     
         <div class="post-content">
-            <p>
-                <?php echo $blogPost['content']; ?>
-            </p>
+            
+            <p><?php echo $blogPost['content']; ?></p>
+            
         </div>
                     
         <?php } ?>
