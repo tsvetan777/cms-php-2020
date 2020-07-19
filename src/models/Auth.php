@@ -8,8 +8,8 @@ class Auth {
         $userEmail  = $columnName['user_email'];
         
         $validateIfRegistrationUserAlreadyExistQuery = 
-                "SELECT * FROM tb_users "
-                . "WHERE name = '$userName' OR email = '$userEmail'";
+                " SELECT * FROM tb_users "
+                . " WHERE name = '$userName' OR email = '$userEmail' ";
         
         $requestResult = Database::get($validateIfRegistrationUserAlreadyExistQuery);
         
@@ -25,8 +25,8 @@ class Auth {
         $userEmail  = $databaseColumn['user_email'];
         $userPass   = $databaseColumn['user_pass'];
         
-        $createNewUserRequest = "INSERT INTO tb_users(name, fname, lname, email, password)"
-                . "VALUES('$userName', '$userFname', '$userLname', '$userEmail', '$userPass')";
+        $createNewUserRequest = " INSERT INTO tb_users(name, fname, lname, email, password) "
+                . " VALUES('$userName', '$userFname', '$userLname', '$userEmail', '$userPass') ";
         
         return Database::query($createNewUserRequest);
     }
@@ -34,8 +34,8 @@ class Auth {
     
     static function assignRoleToUser($userId, $roleId) {
         
-        $assignRoleToInsertedUserQuery = "INSERT INTO tb_user__role(user_id, role_id)"
-                                       . "VALUES($userId, $roleId)";
+        $assignRoleToInsertedUserQuery = " INSERT INTO tb_user__role(user_id, role_id)"
+                                       . " VALUES($userId, $roleId) ";
         
         return Database::query($assignRoleToInsertedUserQuery);
     }
@@ -51,17 +51,16 @@ class Auth {
     }
     
     
-    static function setAuthenticationFlagToAvailable() {
-        $_SESSION['is_authenticated'] = true;
+    static function setAuthenticatedUser($authenticatedCollectionData) {
+        
+        $_SESSION['user_data_collection']   = $authenticatedCollectionData['user_data_collection'];
+        $_SESSION['user_role_collection']   = $authenticatedCollectionData['user_role_collection'];
+        $_SESSION['is_authenticated']        = true;
     }
     
     
     static function isAuthenticated() {
-        
-        if(isset($_SESSION['is_authenticated'])) {
-            return true;
-        } 
-        return false;
+        return (isset($_SESSION['is_authenticated'])) ? $_SESSION['is_authenticated'] : false;      
     }
     
     
@@ -70,8 +69,33 @@ class Auth {
     }
     
     
+    static function isUser() {
+        return Auth::hasRole['USER'];
+    }
+    
+    
+    static function isModerator() {
+        return Auth::hasRole['MODERATOR'];
+    }
+    
+    
+    static function isAdmin() {
+        return Auth::hasRole['ADMIN'];
+    }
+    
+    
     static function signout() {
-        
         session_destroy();
+    }
+    
+    
+    private static function hasRole($roleTitle) {
+        
+        foreach ($_SESSION['user_role_collection'] as $key => $value) {
+            if($value['role_title'] == $roleTitle) {
+                return true;
+            }
+        }
+        return false;
     }
 }
