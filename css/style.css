@@ -73,7 +73,7 @@
 .db-error {
     font-weight     : bold;
     border          : solid 2px #000;
-    background      : #e54d2;
+    background      : #e54d2e;
     text-transform  : uppercase;
     padding         : 5px;
     
@@ -82,6 +82,27 @@
 .form-error {
     font-weight : bold;
     color       : #ff0000;
+}
+
+.list-item{
+    background: #2071c5;
+    display: inline-block;
+    color: #fff;
+}
+
+.list-item a {
+    color: #fff;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.logo {
+    display: inline-block;
+    margin-right: 24px;
+}
+
+#cms-manager {
+    display: inline-block;
 }
 
 
