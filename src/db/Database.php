@@ -13,6 +13,7 @@ class Database {
         return Database::$dbConnection;
     }
     
+    
     static function query($query) {
         
         // Connect to database:
@@ -46,13 +47,28 @@ class Database {
         return mysqli_insert_id(Database::dbConnect());
     }
     
+    
     static function get($databaseQuery) {
         
         $databaseResultSet = Database::query($databaseQuery);
         return mysqli_fetch_assoc($databaseResultSet);
     }
     
+    
+    static function getall($databaseQuery) {
+        
+        $resultCollection   = array();
+        $databaseResultSet  = Database::query($databaseQuery);
+        
+        while ($result = mysqli_fetch_assoc($databaseResultSet)) {
+            array_push($resultCollection, $result);
+        }
+        return $resultCollection;
+    }
+
+
     static function fetch($databaseResultSet) {
+        
         return mysqli_fetch_assoc($databaseResultSet);
     }
 }
