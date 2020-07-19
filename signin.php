@@ -16,12 +16,12 @@
                 type        =   "password"  
                 name        =   "user_pass">
     
-        <input  type    =   "hidden"    
-                name    =   "user_request_tokken"
-                value   =   "1">
+        <input  type        =   "hidden"    
+                name        =   "user_request_tokken"
+                value       =   "1">
     
-        <input  type    =   "submit"
-                class   =   "submit">
+        <input  type        =   "submit"
+                class       =   "submit">
     
     </form>
 </div>
