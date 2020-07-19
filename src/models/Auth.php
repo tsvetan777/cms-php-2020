@@ -9,12 +9,13 @@ class Auth {
         
         $validateIfRegistrationUserAlreadyExistQuery = 
                 "SELECT * FROM tb_users "
-                . "WHERE name = '$userName' AND email = '$userEmail'";
+                . "WHERE name = '$userName' OR email = '$userEmail'";
         
         $requestResult = Database::get($validateIfRegistrationUserAlreadyExistQuery);
         
         return ($requestResult != null);
     }
+    
     
     static function createNewUserInDatabase($databaseColumn) {
         
@@ -30,13 +31,15 @@ class Auth {
         return Database::query($createNewUserRequest);
     }
     
+    
     static function assignRoleToUser($userId, $roleId) {
         
         $assignRoleToInsertedUserQuery = "INSERT INTO tb_user__role(user_id, role_id)"
-                . "VALUES($userId, $roleId)";
+                                       . "VALUES($userId, $roleId)";
         
         return Database::query($assignRoleToInsertedUserQuery);
     }
+    
     
     static function createNewUser($databaseColumn) {
         
@@ -45,5 +48,30 @@ class Auth {
         if($isUserCreated) {
             return Auth::assignRoleToUser(Database::getLastInsertedId(), 1);
         }
+    }
+    
+    
+    static function setAuthenticationFlagToAvailable() {
+        $_SESSION['is_authenticated'] = true;
+    }
+    
+    
+    static function isAuthenticated() {
+        
+        if(isset($_SESSION['is_authenticated'])) {
+            return true;
+        } 
+        return false;
+    }
+    
+    
+    static function isNotAuthenticated() {
+        return !Auth::isAuthenticated();
+    }
+    
+    
+    static function signout() {
+        
+        session_destroy();
     }
 }
