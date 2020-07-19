@@ -11,7 +11,8 @@ if(isset($_POST['user_request_tokken']) && $_POST['user_request_tokken'] == 1) {
     $userRecord = Database::get($checkIfUserExistsQuery);
     
     if($userRecord) {
-        $_SESSION['is_authenticated'] = true;
+        //$_SESSION['is_authenticated'] = true;
+        Auth::setAuthenticationFlagToAvailable();
         return redirectTo('index');
     }
     
