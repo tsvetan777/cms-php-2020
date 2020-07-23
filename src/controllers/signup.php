@@ -43,8 +43,6 @@ if(isset($_POST['user_request_tokken']) AND $_POST['user_request_tokken'] == 1) 
     ));
     
     if($isUserCreated) {
-        
            echo 'User created successfully!';
-        
     }   
 }
