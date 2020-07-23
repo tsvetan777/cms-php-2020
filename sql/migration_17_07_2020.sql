@@ -20,7 +20,7 @@ INSERT INTO mycms.tb_blog_post__categories(blog_post_id, category_id) VALUES(4, 
 INSERT INTO mycms.tb_blog_post__categories(blog_post_id, category_id) VALUES(5, 3);
 
 
-SELECT * FROM 	tb_blogpost a,
+SELECT * FROM 	tb_blog_post a,
 				tb_blog_post__categories b
 	WHERE 	a.id = b.blog_post_id	AND		b.category_id = ;
     
