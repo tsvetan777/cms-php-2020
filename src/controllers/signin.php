@@ -13,8 +13,8 @@ if(isset($_POST['user_request_tokken']) && $_POST['user_request_tokken'] == 1) {
     if($userRecord) {
         
         $userRoleId                     = $userRecord['id'];
-        $getUserRoleCollectionQuery     = " SELECT b.ttitle AS role_title "
-                                        . " FROM tb_user__role AS a, "
+        $getUserRoleCollectionQuery     = " SELECT b.title AS role_title "
+                                        . " FROM tb_user__role AS a, tm_roles AS b"
                                         . " WHERE user_id = $userRoleId "
                                         . " AND a.role_id = b.id ";
         $userRoleCollection             = Database::getall($getUserRoleCollectionQuery);
