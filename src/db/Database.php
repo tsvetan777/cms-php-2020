@@ -19,7 +19,7 @@ class Database {
         // Connect to database:
         
         $connection - Database::dbConnect();
-        // connection = mysqli_connect("localhost", "root", "", "mycms");
+        // $connection = mysqli_connect("localhost", "root", "", "mycms");
         
         if(!$connection) {
             echo mysqli_connect_error();
