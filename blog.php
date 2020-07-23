@@ -19,11 +19,11 @@
             
             </li>
         
+        <?php } ?>
+            
             <li class="category-placeholder--category">
                 <a href="http://localhost/CMS/blog.php">Изчисти</a>
             </li>
-    
-        <?php } ?>
     
     </ul>
     
@@ -55,13 +55,13 @@
         
         while($blogPost = Database::fetch($mysqlResult)) { ?>
                     
-        <span class="post-title"> 
-            <?php echo $blogPost['title']; ?> 
-        </span>
+            <span class="post-title"> 
+                <?php echo $blogPost['title']; ?> 
+            </span>
                     
-        <div class="post-content">
-            <p><?php echo $blogPost['content']; ?></p>
-        </div>
+            <div class="post-content">
+                <p><?php echo $blogPost['content']; ?></p>
+            </div>
                     
         <?php } ?>
     </div>
