@@ -9,7 +9,7 @@ class Auth {
         
         $validateIfRegistrationUserAlreadyExistQuery = 
                 " SELECT * FROM tb_users "
-                . " WHERE name = '$userName' OR email = '$userEmail' ";
+              . " WHERE name = '$userName' OR email = '$userEmail' ";
         
         $requestResult = Database::get($validateIfRegistrationUserAlreadyExistQuery);
         
@@ -55,7 +55,7 @@ class Auth {
         
         $_SESSION['user_data_collection']   = $authenticatedCollectionData['user_data_collection'];
         $_SESSION['user_role_collection']   = $authenticatedCollectionData['user_role_collection'];
-        $_SESSION['is_authenticated']        = true;
+        $_SESSION['is_authenticated']       = true;
     }
     
     
@@ -70,17 +70,17 @@ class Auth {
     
     
     static function isUser() {
-        return Auth::hasRole['USER'];
+        return Auth::isAuthenticated() && Auth::hasRole('USER');
     }
     
     
     static function isModerator() {
-        return Auth::hasRole['MODERATOR'];
+        return Auth::isAuthenticated() && Auth::hasRole('MODERATOR');
     }
     
     
     static function isAdmin() {
-        return Auth::hasRole['ADMIN'];
+        return Auth::isAuthenticated() && Auth::hasRole('ADMIN');
     }
     
     
