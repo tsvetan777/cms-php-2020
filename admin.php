@@ -1,4 +1,4 @@
-<?php include ('./templates/header.php'); ?>
+<?php include ('./templates/admin/header.php'); ?>
 <?php include ('./src/util/static_list.php'); ?>
 <?php include ('./src/controllers/admin.php'); ?>
 
@@ -21,4 +21,4 @@
 </div>
 
 
-<?php include ('./templates/footer.php'); ?>
+<?php include ('./templates/admin/footer.php'); ?>

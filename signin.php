@@ -1,4 +1,4 @@
-<?php include('./templates/header.php'); ?>
+<?php include('./templates/user/header.php'); ?>
 <?php include('./src/controllers/signin.php') ?>
 
 <div id="signup--wrapper">
@@ -27,5 +27,5 @@
 </div>
 
 
-<?php include ('./templates/footer.php'); ?>
+<?php include ('./templates/user/footer.php'); ?>
 
