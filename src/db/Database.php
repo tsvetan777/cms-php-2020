@@ -55,7 +55,7 @@ class Database {
     }
     
     
-    static function getall($databaseQuery) {
+    static function getAll($databaseQuery) {
         
         $resultCollection   = array();
         $databaseResultSet  = Database::query($databaseQuery);
@@ -70,6 +70,12 @@ class Database {
     static function fetch($databaseResultSet) {
         
         return mysqli_fetch_assoc($databaseResultSet);
+    }
+    
+    static function count($tableName) {
+        
+        $databaseQuery = "SELECT COUNT(*) AS count FROM $tableName";
+        Database::get($databaseQuery)['count'];
     }
 }
 
