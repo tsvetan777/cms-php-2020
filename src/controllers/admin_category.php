@@ -35,29 +35,21 @@ function getCategoryTokken() {
 
 if (isset($_GET['admin_action_tokken']) AND $_GET['admin_action_tokken'] == 'create') {
     
-    //Insert new data into the database:
-    
-    $categoryTitle = $_GET['category_title'];
-    echo '*' . $categoryTitle;
-    Database::query("INSERT INTO tm_categories(title) VALUES($categoryTitle)");
-    
+    Database::insert('category_title', array(
+       
+        'title' => $_GET['category_title']
+    ));
 }
 
 
 if (isset(  $_GET['admin_action_tokken']) AND $_GET['admin_action_tokken'] == 'edit') {
     
-    //Update existing data:
-    
-    $categoryTitle  = $_GET['category_title'];
-    $categoryId     = $_GET['admin_category_tokken'];
-    Database::query("UPDATE tm_categories SET title = $categoryTitle WHERE id = $categoryId");
+    Database::update('tm_categories', array('title' => $_GET['category_title']),
+                                      array('id'    => $_GET['admin_category_tokken']));
 }
 
 
 if (isset($_GET['action']) AND $_GET['action'] == 'delete') {
     
-    //Delete existing data:
-    
-    $categoryId = $_GET['category_id'];
-    Database::query("DELETE FROM tm_categories WHERE id = $categoryId");
+    Database::delete('tm_categories', array('id' => $_GET['category_id']));
 }
