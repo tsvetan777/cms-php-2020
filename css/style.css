@@ -97,19 +97,19 @@
 }
 
 .list-item{
-    background: #2071c5;
-    display: inline-block;
-    color: #fff;
+    background  : #2071c5;
+    display     : inline-block;
+    color       : #fff;
 }
 
 .list-item a {
-    color: #fff;
-    padding: 10px;
-    text-decoration: none;
+    color           : #fff;
+    padding         : 10px;
+    text-decoration : none;
 }
 
 .logo {
-    display: inline-block;
+    display     : inline-block;
     margin-right: 24px;
 }
 
@@ -118,13 +118,28 @@
 }
 
 .btn {
-    background: #2071c5;
-    display: inline-block;
-    color: #fff;
-    padding: 10px;
-    text-decoration: none
+    background      : #2071c5;
+    display         : inline-block;
+    color           : #fff;
+    padding         : 10px;
+    text-decoration : none
 }
 
+.pagination {
+    display         : inline-block;
+    padding         : 5px;
+    margin          : 5px;
+    text-transform  : lowercase;
+    background      : #dedede;
+    border          : solid #d91b5c 1px;
+    text-decoration : none;
+    color           : #000;
+}
+
+.pagination:hover {
+    background  : royalblue;
+    color       : #fff;
+}
 
 
 
