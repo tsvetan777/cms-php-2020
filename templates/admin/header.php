@@ -1,8 +1,9 @@
 <?php session_start(); ?>
-<?php include './src/db/Database.php';    ?>
-<?php include './src/models/Auth.php';          ?>
-<?php include './src/util/form.php';            ?>
-<?php include './src/util/redirect.php';        ?>
+<?php include './src/db/Database.php';      ?>
+<?php include './src/models/Auth.php';      ?>
+<?php include './src/util/form.php';        ?>
+<?php include './src/util/Pagination.php';  ?>
+<?php include './src/util/redirect.php';    ?>
 
 <html>
     <head>
